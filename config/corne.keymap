@@ -8,16 +8,27 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-/ {
-        keymap {
-                compatible = "zmk,keymap";
+#define COLEMAK 1
 
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+#define XXX &none
+#define ___ &trans
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+            colemak {
+                bindings = <
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    XXX           &kp Q         &kp W         &kp F         &kp P         &kp G             &kp J         &kp L         &kp U         &kp Y         &kp SEMI      XXX
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &mt LCTRL TAB &kp A         &kp R         &kp S         &kp T         &kp D             &kp H         &kp N         &kp E         &kp I         &kp O         &kp BSPC
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &mt LSHFT SQT &kp Z         &kp X         &kp C         &kp V         &kp B             &kp K         &kp M         &kp COMMA     &kp Dot       &kp FLSH      &kp BLSH
+// ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├──────────────┼────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              &mt LWIN RET  &lt 1 SPC     &lt 2 ESC         &lt 1 SPC      &lt 2 ESC    &kp LALT
+//                                           ╰─────────────┴─────────────┴─────────────╯   ╰──────────────┴────────────┴─────────────╯
+                >;
+            };
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
