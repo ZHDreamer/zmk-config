@@ -12,8 +12,8 @@
 #define ___ &trans
 
 &lt {
-    flavor = "tap-preferred"
-    tapping-term-ms = <200>
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
 };
 
 / {
