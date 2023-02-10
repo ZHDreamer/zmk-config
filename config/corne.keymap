@@ -11,6 +11,11 @@
 #define XXX &none
 #define ___ &trans
 
+&lt {
+    flavor = "tap-preferred"
+    tapping-term-ms = <200>
+}
+
 / {
     keymap {
         compatible = "zmk,keymap";
