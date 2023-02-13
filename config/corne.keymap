@@ -12,7 +12,7 @@
 #define ___ &trans
 
 &lt {
-    flavor = "tap-preferred";
+    flavor = "balanced";
     tapping-term-ms = <200>;
 };
 
