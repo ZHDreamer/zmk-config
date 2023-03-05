@@ -65,7 +65,7 @@
         };
         combo_bkt { // (|)
             timeout-ms = <20>;
-            key-positions = <08 09>; // uy
+            key-positions = <8 9>; // uy
             bindings = <&pair_bkt>;
             layers = <0 1 2 3>;
         };
