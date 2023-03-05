@@ -18,13 +18,32 @@
 
 / {
     macros {
+        // (|)
         pair_par: pair_par {
-            label = "pair_ parenthesis";
+            label = "pair_parentheses";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
             bindings = <&kp LPAR &kp RPAR &kp LEFT>;
+        };
+
+        pair_par: pair_bkt {
+            label = "pair_brackets";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp LBKT &kp RBKT &kp LEFT>;
+        };
+
+        pair_par: pair_brc {
+            label = "pair_braces";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp LBRC &kp RBRC &kp LEFT>;
         };
     };
 
@@ -42,6 +61,18 @@
             timeout-ms = <20>;
             key-positions = <20 21>; // ei
             bindings = <&pair_par>;
+            layers = <0 1 2 3>;
+        };
+        combo_bkt { // (|)
+            timeout-ms = <20>;
+            key-positions = <08 09>; // uy
+            bindings = <&pair_bkt>;
+            layers = <0 1 2 3>;
+        };
+        combo_brc { // (|)
+            timeout-ms = <20>;
+            key-positions = <32 33>; // ,.
+            bindings = <&pair_brc>;
             layers = <0 1 2 3>;
         };
     };
