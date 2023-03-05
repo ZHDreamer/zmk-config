@@ -17,10 +17,11 @@
 };
 
 / {
-    macros{
+    macros {
         pair_par: pair_par {
             label = "pair_ parenthesis";
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
             bindings = <&kp LPAR &kp RPAR &kp LEFT>;
