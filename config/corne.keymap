@@ -27,8 +27,8 @@
             tap-ms = <10>;
             bindings = <&kp LPAR &kp RPAR &kp LEFT>;
         };
-
-        pair_par: pair_bkt {
+        // [|]
+        pair_bkt: pair_bkt {
             label = "pair_brackets";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -36,8 +36,8 @@
             tap-ms = <10>;
             bindings = <&kp LBKT &kp RBKT &kp LEFT>;
         };
-
-        pair_par: pair_brc {
+        // {|}
+        pair_brc: pair_brc {
             label = "pair_braces";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
