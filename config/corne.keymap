@@ -65,7 +65,7 @@
             bindings = <&kp DQT &kp DQT &kp LEFT>;
         };
         // `|`
-        pair_bkt: pair_bkt {
+        pair_btk: pair_btk {
             label = "pair_backticks";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -103,10 +103,10 @@
             bindings = <&pair_brc>;
             layers = <0 1 2 3>;
         };
-        combo_bkt { // `|`
+        combo_btk { // `|`
             timeout-ms = <COMBO_TIMEOUT_SHORT>;
             key-positions = <9 10>; // y;
-            bindings = <&pair_bkt>;
+            bindings = <&pair_btk>;
             layers = <0 1 2 3>;
         };
         combo_sqt { // '|'
