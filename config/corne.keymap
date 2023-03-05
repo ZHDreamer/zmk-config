@@ -10,7 +10,7 @@
 
 #define XXX &none
 #define ___ &trans
-#define COMBO_TIMEOUT_SHORT 20
+#define COMBO_TIMEOUT_SHORT 30
 
 &lt {
     flavor = "balanced";
