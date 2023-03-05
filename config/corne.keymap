@@ -10,6 +10,7 @@
 
 #define XXX &none
 #define ___ &trans
+#define COMBO_TIMEOUT_SHORT 20
 
 &lt {
     flavor = "balanced";
@@ -45,11 +46,38 @@
             tap-ms = <10>;
             bindings = <&kp LBRC &kp RBRC &kp LEFT>;
         };
+        // '|'
+        pair_sqt: pair_sqt {
+            label = "pair_single_quotes";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp SQT &kp SQT &kp LEFT>;
+        };
+        // "|"
+        pair_dqt: pair_dqt {
+            label = "pair_double_quotes";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp DQT &kp DQT &kp LEFT>;
+        };
+        // `|`
+        pair_bkt: pair_bkt {
+            label = "pair_backticks";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp GRAVE &kp GRAVE &kp LEFT>;
+        };
     };
 
 /*  KEY POSITIONS
     ╭────────────────────────╮   ╭────────────────────────╮
-    │ 00  01  02  03  04  05 │   │ 06  07  08  09  10  11 │
+    │  0   1   2   3   4   5 │   │  6   7   8   9  10  11 │
     │ 12  13  14  15  16  17 │   │ 18  19  20  21  22  23 │
     │ 24  25  26  27  28  29 │   │ 30  31  32  33  34  35 │
     ╰───────────╮ 36  37  38 │   │ 39  40  41 ╭───────────╯
@@ -57,22 +85,40 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_par { // (|)
-            timeout-ms = <20>;
-            key-positions = <20 21>; // ei
-            bindings = <&pair_par>;
-            layers = <0 1 2 3>;
-        };
-        combo_bkt { // (|)
-            timeout-ms = <20>;
+        combo_bkt { // [|]
+            timeout-ms = <COMBO_TIMEOUT_SHORT>;
             key-positions = <8 9>; // uy
             bindings = <&pair_bkt>;
             layers = <0 1 2 3>;
         };
-        combo_brc { // (|)
-            timeout-ms = <20>;
+        combo_par { // (|)
+            timeout-ms = <COMBO_TIMEOUT_SHORT>;
+            key-positions = <20 21>; // ei
+            bindings = <&pair_par>;
+            layers = <0 1 2 3>;
+        };
+        combo_brc { // {|}
+            timeout-ms = <COMBO_TIMEOUT_SHORT>;
             key-positions = <32 33>; // ,.
             bindings = <&pair_brc>;
+            layers = <0 1 2 3>;
+        };
+        combo_bkt { // `|`
+            timeout-ms = <COMBO_TIMEOUT_SHORT>;
+            key-positions = <9 10>; // y;
+            bindings = <&pair_bkt>;
+            layers = <0 1 2 3>;
+        };
+        combo_sqt { // '|'
+            timeout-ms = <COMBO_TIMEOUT_SHORT>;
+            key-positions = <21 22>; // io
+            bindings = <&pair_sqt>;
+            layers = <0 1 2 3>;
+        };
+        combo_dqt { // "|"
+            timeout-ms = <COMBO_TIMEOUT_SHORT>;
+            key-positions = <33 34>; // ./
+            bindings = <&pair_dqt>;
             layers = <0 1 2 3>;
         };
     };
