@@ -19,6 +19,27 @@
 };
 
 / {
+    behaviors {
+        tlt: thumb_layer_tap_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            label = "THUMB_LAYER_TAP_PREFERRED";
+            #binding-cells = <1>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+
+        tlh: thumb_layer_hold_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            label = "THUMB_LAYER_HOLD_PREFERRED";
+            #binding-cells = <1>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+    };
     macros {
         // (|)
         pair_par: pair_par {
@@ -152,7 +173,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &mt LSHFT SQT &kp Z         &kp X         &kp C         &kp V         &kp B             &kp K         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &mt RSHFT BSLH
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              &mt LGUI RET  &lt 2 SPACE   &lt 1 ESC         &lt 2 SPACE   &lt 1 ESC     &kp LALT
+                                              &mt LGUI RET  &tlt 2 SPACE  &lt 1 ESC         &lt 2 SPACE   &tlh 1 ESC    &kp LALT
 //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
