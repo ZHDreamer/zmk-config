@@ -23,7 +23,7 @@
         tlt: thumb_layer_tap_preferred {
             compatible = "zmk,behavior-hold-tap";
             label = "THUMB_LAYER_TAP_PREFERRED";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
@@ -33,7 +33,7 @@
         tlh: thumb_layer_hold_preferred {
             compatible = "zmk,behavior-hold-tap";
             label = "THUMB_LAYER_HOLD_PREFERRED";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "hold-preferred";
