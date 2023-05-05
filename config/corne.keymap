@@ -52,7 +52,7 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <100>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
         };
@@ -64,7 +64,7 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <100>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
