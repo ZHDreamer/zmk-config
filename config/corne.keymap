@@ -49,24 +49,24 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_ROW_MODE";
             #binding-cells = <2>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <100>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <300>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;
+            hold-trigger-on-release = true;
         };
 
         hmr: home_row_mode_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_ROW_MODE";
             #binding-cells = <2>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <100>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <300>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
+            hold-trigger-on-release = true;
         };
     };
     macros {
