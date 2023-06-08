@@ -49,8 +49,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_ROW_MODE";
             #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <300>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
@@ -61,8 +61,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_ROW_MODE";
             #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <300>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
