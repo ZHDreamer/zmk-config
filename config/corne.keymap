@@ -14,8 +14,17 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
 
-#define XXX &none
-#define ___ &trans
+#define XXX  &none
+#define ___  &trans
+#define hmls hml LSHFT
+#define hmrs hmr RSHFT
+#define hmlc hml LCTRL
+#define hmrc hmr RCTRL
+#define hmla hml LALT
+#define hmra hmr RALT
+#define hmlg hml LGUI
+#define hmrg hmr RGUI
+
 #define COMBO_TIMEOUT_SHORT 30
 
 &lt {
@@ -30,7 +39,7 @@
             label = "THUMB_LAYER_TAP_PREFERRED";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
+            quick-tap-ms = <250>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
         };
@@ -133,6 +142,47 @@
             tap-ms = <10>;
             bindings = <&kp GRAVE &kp GRAVE &kp GRAVE &kp GRAVE &kp GRAVE &kp GRAVE &kp LEFT &kp LEFT &kp LEFT>;
         };
+        // change bluetooth device
+        bt_sel_0: bt_sel_0 {
+            label = "bluetooth_select_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&out OUT_BLE &bt BT_SEL 0>;
+        };
+        bt_sel_1: bt_sel_1 {
+            label = "bluetooth_select_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&out OUT_BLE &bt BT_SEL 1>;
+        };
+        bt_sel_2: bt_sel_2 {
+            label = "bluetooth_select_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&out OUT_BLE &bt BT_SEL 2>;
+        };
+        bt_sel_3: bt_sel_3 {
+            label = "bluetooth_select_3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&out OUT_BLE &bt BT_SEL 3>;
+        };
+        bt_sel_4: bt_sel_4 {
+            label = "bluetooth_select_4";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&out OUT_BLE &bt BT_SEL 4>;
+        };
     };
 
 /*  KEY POSITIONS
@@ -196,13 +246,13 @@
         colemak_layer {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    XXX           &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &to 4
+    &kp CAPS      &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &to 4
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LCTRL     &hml LGUI A   &hml LCTRL R  &hml LALT S   &hml LSHFT T  &kp G             &kp M         &hmr RSHFT N  &hmr RALT E   &hmr RCTRL I  &hmr LGUI O   &kp BSPC
+    &kp BSPC      &hmlg A       &hmlc R       &hmla S       &hmls T       &kp G             &kp M         &hmrs N       &hmra E       &hmrc I       &hmrg O       &kp BSPC
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mt LSHFT SQT &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH      &mt RSHFT BSLH
+    &kp SQT       &kp Z         &kp X         &kp C         &kp D         &kp V             &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH      &kp BSLH
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              &mt LGUI RET  &tlt 2 SPACE  &lt 1 ESC         &lt 2 SPACE   &tlh 1 ESC    &mt LALT TAB
+                                              &mt LSHFT RET &tlt 2 SPACE  &lt 1 ESC         &lt 2 SPACE   &tlh 1 ESC    &mt RSHFT TAB
 //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -211,7 +261,7 @@
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           &kp TILDE     &kp N1        &kp N2        &kp N3        &kp PIPE          &kp AMPS      &kp STAR      &kp LBKT      &kp RBKT      &kp CARET     ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           &kp N0        &kp N4        &kp N5        &kp N6        &kp MINUS         &kp EQUAL     &kp UNDER     &kp LPAR      &kp RPAR      &kp DLLR      ___
+    ___           &hmlg N0      &hmlc N4      &hmla N5      &hmls N6      &kp MINUS         &kp EQUAL     &hmrs UNDER   &hmra LPAR    &hmrc RPAR    &hmrg DLLR    ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &kp GRAVE     &kp N7        &kp N8        &kp N9        &kp HASH          &kp PRCNT     &kp PLUS      &kp LBRC      &kp RBRC      &kp EXCL      ___
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
@@ -235,9 +285,9 @@
         keyboard_layer {
             bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           ___           ___           ___           ___               ___           ___           &out OUT_TOG  ___           ___           ___
+    ___           ___           ___           ___           ___           ___               ___           ___           ___           ___           ___           ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      ___           &kp F21       &kp F22       &kp F23       &kp F24       ___
+    &bt BT_CLR    &out OUT_USB  &bt_sel_0     &bt_sel_1     &bt_sel_2     &bt_sel_3         ___           &kp F21       &kp F22       &kp F23       &kp F24       ___
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___           ___               ___           &kp LANG3     &kp LANG4     &kp LANG5     ___           ___
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
