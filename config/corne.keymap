@@ -64,6 +64,7 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
+            hold-while-undecided;
         };
 
         hmr: home_row_mode_right {
