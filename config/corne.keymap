@@ -56,11 +56,11 @@
 
         hml: home_row_mode_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_MODE";
+            label = "HOME_ROW_MODE_LEFT";
             #binding-cells = <2>;
             tapping-term-ms = <1000>;
             quick-tap-ms = <250>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
@@ -68,11 +68,11 @@
 
         hmr: home_row_mode_right {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_MODE";
+            label = "HOME_ROW_MODE_RIGHT";
             #binding-cells = <2>;
             tapping-term-ms = <1000>;
             quick-tap-ms = <250>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
