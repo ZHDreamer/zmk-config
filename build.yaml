@@ -13,19 +13,18 @@
 #
 ---
 include:
-  - board: nrfmicro_13
-    shield: corne_left
-  - board: nrfmicro_13
-    shield: corne_right
-  - board: nrfmicro_13
-    shield: settings_reset
+  # - board: nrfmicro_13
+  #   shield: corne_left
+  # - board: nrfmicro_13
+  #   shield: corne_right
+  # - board: nrfmicro_13
+  #   shield: settings_reset
   - board: eyelash_corne_right
     shield: nice_view
-    #snippet: zmk-usb-logging
   - board: eyelash_corne_left
     shield: nice_view
-    # snippet: studio-rpc-usb-uart
-    # cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     # artifact-name: eyelash_corne_studio_left
   - board: eyelash_corne_left
     shield: settings_reset
