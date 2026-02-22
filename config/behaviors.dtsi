@@ -1,19 +1,5 @@
 #include <behaviors.dtsi>
 
-#define HM(NAME, KEYPOS, ...) \
-    NAME: NAME { \
-        compatible = "zmk,behavior-hold-tap"; \
-        #binding-cells = <2>; \
-        flavor = "balanced"; \
-        tapping-term-ms = <200>; \
-        quick-tap-ms = <175>; \
-        require-prior-idle-ms = <75>; \
-        bindings = <&kp>, <&kp>; \
-        hold-trigger-key-positions = <KEYPOS THUMBS>; \
-        hold-trigger-on-release; \
-        __VA_ARGS__ \
-    };
-
 / {
     behaviors {
         mt: mod_tap {
@@ -62,6 +48,20 @@
         };
     };
 };
+
+#define HM(NAME, KEYPOS, ...) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        flavor = "balanced"; \
+        tapping-term-ms = <200>; \
+        quick-tap-ms = <250>; \
+        require-prior-idle-ms = <75>; \
+        bindings = <&kp>, <&kp>; \
+        hold-trigger-key-positions = <KEYPOS THUMBS>; \
+        hold-trigger-on-release; \
+        __VA_ARGS__ \
+    };
 
 / {
     home-row-mod {
