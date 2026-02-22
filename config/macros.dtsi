@@ -1,0 +1,28 @@
+#define AP(NAME, SYM1, SYM2) \
+    MASKED(NAME ## _sym1_masked, (MOD_RSFT|MOD_LSFT), SYM1) \
+    MASKED(NAME ## _sym2_masked, (MOD_RSFT|MOD_LSFT), SYM2) \
+    ZMK_MACRO(NAME, \
+        bindings \
+            = <& ## NAME ## _sym1_masked> \
+            , <& ## NAME ## _sym2_masked> \
+            , <&left_masked>; \
+    )
+
+/ {
+    macros {
+        AP(pair_par, &kp LPAR,  &kp RPAR)
+        AP(pair_bkt, &kp LBKT,  &kp RBKT)
+        AP(pair_brc, &kp LBRC,  &kp RBRC)
+        AP(pair_lgt, &kp LT,    &kp GT)
+        AP(pair_sqt, &kp SQT,   &kp SQT)
+        AP(pair_dqt, &kp DQT,   &kp DQT)
+        AP(pair_grv, &kp GRAVE, &kp GRAVE)
+
+        ZMK_MACRO1(bts,
+            bindings
+                = <&out OUT_BLE>
+                , <&macro_param_1to2>
+                , <&bt BT_SEL MACRO_PLACEHOLDER>;
+        )
+    };
+};

@@ -1,0 +1,102 @@
+#include <behaviors.dtsi>
+
+#define HM(NAME, KEYPOS, ...) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        flavor = "balanced"; \
+        tapping-term-ms = <200>; \
+        quick-tap-ms = <175>; \
+        require-prior-idle-ms = <75>; \
+        bindings = <&kp>, <&kp>; \
+        hold-trigger-key-positions = <KEYPOS THUMBS>; \
+        hold-trigger-on-release; \
+        __VA_ARGS__ \
+    };
+
+/ {
+    behaviors {
+        mt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        ltt: layer_tap_tap_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+
+        lth: layer_tap_hold_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_un_gr: layer_tap_tap_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            bindings = <&mo>, <&under_grave>;
+        };
+
+        lt_dq_sq: layer_tap_hold_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            bindings = <&mo>, <&dqt_sqt>;
+        };
+    };
+};
+
+/ {
+    home-row-mod {
+        HM(hlh, KEYS_R, hold-while-undecided;)
+        HM(hl,  KEYS_R)
+        HM(hrh, KEYS_L, hold-while-undecided;)
+        HM(hr,  KEYS_L)
+    };
+};
+
+#define SM(NAME, TAP, SHIFTED) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <TAP>, <SHIFTED>; \
+        mods = <(MOD_RSFT|MOD_LSFT)>; \
+    };
+
+#define MASKED(NAME, MODS, BINDING) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <BINDING>, <BINDING>; \
+        mods = <MODS>; \
+    };
+
+/ {
+    mod-morph {
+        SM(semi_at,     &kp SEMI,  &kp AT)
+        SM(comma_lpar,  &kp COMMA, &kp LPAR)
+        SM(dot_rpar,    &kp DOT,   &kp RPAR)
+        SM(colon_bslh,  &kp COLON, &kp BSLH)
+        SM(under_grave, &kp UNDER, &kp GRAVE)
+        SM(dqt_sqt,     &kp DQT,   &kp SQT)
+
+        MASKED(left_masked, (MOD_RSFT|MOD_LSFT), &kp LEFT)
+    };
+};
