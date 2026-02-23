@@ -24,7 +24,7 @@
 #define ltn ltt NAV
 
 #define lt_un_gr_l lt_un_gr SYM 0
-#define lt_dq_sq_r lt_dq_sq FUN 0
+#define lt_dq_sq_r lt_dq_sq NAV 0
 
 #define LWORD LC(LEFT)
 #define RWORD RC(RIGHT)
